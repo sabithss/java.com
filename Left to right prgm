@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class PrintDigitsLeftToRight {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        scanner.close();
+        number = Math.abs(number);
+        if (number == 0) {
+            System.out.println("Digits from left to right: 0");
+            return;
+        }
+        System.out.print("Digits from left to right: ");
+        int divisor = 1;
+        while (number / divisor >= 10) {
+            divisor *= 10;
+        }
+        while (divisor > 0) {
+            int digit = number / divisor;
+            System.out.print(digit + " ");
+            number %= divisor;
+            divisor /= 10;
+        }
+    }
+}
